@@ -6,6 +6,9 @@ include 'database.php';
 
 <?php
 $db = new Database();
+$id = $_GET['id'];
+$query = "SELECT * FROM tbl_user WHERE id = $id";
+$getData = $db->select($query)->fetch_assoc();
 
 if (isset($_POST['submit'])) {
     $name  = $_POST['name'];
@@ -29,15 +32,15 @@ if (isset($_POST['submit'])) {
 <table>
   <tr>
     <td>Name</td>
-    <td><input type="text" name="name" placeholder="Please Enter your name"></td>
+    <td><input type="text" name="name" value="<?php echo $getData['name'] ?>"></td>
   </tr>
   <tr>
      <td>Email</td>
-     <td><input type="text" name="email" placeholder="Please Enter your email"></td>
+     <td><input type="text" name="email" value="<?php echo $getData['email'] ?>"></td>
   </tr>
   <tr>
      <td>Skill</td>
-     <td><input type="text" name="skill" placeholder="Please Enter your skill"></td>
+     <td><input type="text" name="skill" value="<?php echo $getData['skill'] ?>"></td>
   </tr>
  
   <tr>

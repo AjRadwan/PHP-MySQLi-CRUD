@@ -1,11 +1,10 @@
 <?php
 class Database{
 //getting define db value from config file making it dynamic with variable
-    public $host = DB_HOST;
-    public $user = DB_USER;
+    public $host     = DB_HOST;
+    public $user     = DB_USER;
     public $password = DB_PASS;
-    public $db_name = DB_NAME;
-
+    public $db_name  = DB_NAME;
 
     public $link;
     public $error;
@@ -37,7 +36,7 @@ class Database{
     public function insert($query){
         $insert_row = $this->link->query($query) or die($this->link->error.__LINE__);
         if($insert_row){
-           echo "data insertred sucesssfully";
+           echo "Data insertred sucesssfully";
           } else {
             return false;
          }

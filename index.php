@@ -24,7 +24,7 @@ $read = $db->select($query);
         <td><?php echo $row['name']; ?></td>
         <td><?php echo $row['email']; ?></td>
         <td><?php echo $row['skill']; ?></td>
-        <td><a href="update.php?id=<?php echo $row['id']; ?>">Edit</a></td>
+        <td><a href="update.php?id=<?php echo urlencode($row['id']); ?>">Edit</a></td>
     </tr>
 <?php }  ?>
 <?php } else { ?>
