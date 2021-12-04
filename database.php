@@ -46,7 +46,7 @@ class Database{
  public function update($query){
     $update_row = $this->link->query($query) or die($this->link->error.__LINE__);
     if($update_row){
-     return $update_row;
+        echo "Data Updated sucesssfully";
     } else {
      return false;
      }
@@ -56,7 +56,7 @@ class Database{
     public function delete($query){
     $delete_row = $this->link->query($query) or die($this->link->error.__LINE__);
     if($delete_row){
-      return $delete_row;
+     echo "Data deleted sucesssfully";
     } else {
       return false;
      }

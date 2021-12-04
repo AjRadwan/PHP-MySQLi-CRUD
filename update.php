@@ -17,18 +17,24 @@ if (isset($_POST['submit'])) {
     if ($name == '' || $email == '' || $skill == '') {
         $error = "Field Must Not be empty";
     }else{
-     $query = "Insert INTO tbl_user (name, email, skill) VALUES('$name', '$email', '$skill')";
-     $create = $db->insert($query);
+     $query = "update tbl_user set name='$name',  email='$email', skill='$skill' where id='$id'";
+     $update = $db->update($query);
     }
 }
 ?>
-    
+<?php
+//  delete data
+if (isset($_POST['delete'])) {
+    $query = "delete from tbl_user where id='$id'";
+    $delData = $db->delete($query);
+}
+?>
 <?php
  if (isset($error)) {
      echo $error;
  }
 ?>
-<form action="create.php" method="POST">
+<form action="update.php?id=<?php echo $id; ?>" method="POST">
 <table>
   <tr>
     <td>Name</td>
@@ -48,6 +54,7 @@ if (isset($_POST['submit'])) {
    <td>
        <input type="submit" name="submit" value="Submit">
        <input type="reset" value="cancel">
+       <input type="submit" value="delete">
    </td>
   </tr>
  
