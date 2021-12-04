@@ -9,9 +9,7 @@ $db = new Database();
 $query = "SELECT * FROM tbl_user";
 $read = $db->select($query);
 ?>
-
-
-
+    
 <table class="tblone">
     <tr>
         <th>Name</th>
@@ -26,7 +24,7 @@ $read = $db->select($query);
         <td><?php echo $row['name']; ?></td>
         <td><?php echo $row['email']; ?></td>
         <td><?php echo $row['skill']; ?></td>
-        <td><a href="update.php?id=1">Edit</a></td>
+        <td><a href="update.php?id=<?php echo $row['id']; ?>">Edit</a></td>
     </tr>
 <?php }  ?>
 <?php } else { ?>
@@ -38,14 +36,7 @@ $read = $db->select($query);
 </table>
 
 
-
-
-
-
-
-
-
-
+<a href="create.php">Create User</a>
 
 
 <?php include 'inc/footer.php' ?>

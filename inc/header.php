@@ -11,6 +11,7 @@
 }
   tr:hover {background-color: #ddd;}
   .tblone td{padding:5px 10px; text-align:center;}
+   
  </style>
 </head>
 <body>
