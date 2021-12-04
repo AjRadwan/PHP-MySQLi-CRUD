@@ -6,11 +6,28 @@ include 'database.php';
 
 <?php
 $db = new Database();
- 
+
+if (isset($_POST['submit'])) {
+    $name  = $_POST['name'];
+    $email = $_POST['email'];
+    $skill = $_POST['skill'];
+    if ($name == '' || $email == '' || $skill == '') {
+        $error = "Field Must Not be empty";
+    }else{
+     $query = "Insert INTO tbl_user (name, email, skill) VALUES('$name', '$email', '$skill')";
+     $create = $db->insert($query);
+     
+    }
+}
 ?>
     
-<form action="create.php">
-<table class='tbltwo'>
+<?php
+ if (isset($error)) {
+     echo $error;
+ }
+?>
+<form action="create.php" method="POST">
+<table>
   <tr>
     <td>Name</td>
     <td><input type="text" name="name" placeholder="Please Enter your name"></td>

@@ -31,4 +31,35 @@ class Database{
           return false;
       }
     }
+
+
+    // insert data
+    public function insert($query){
+        $insert_row = $this->link->query($query) or die($this->link->error.__LINE__);
+        if($insert_row){
+           echo "data insertred sucesssfully";
+          } else {
+            return false;
+         }
+    }
+
+    // Update data
+ public function update($query){
+    $update_row = $this->link->query($query) or die($this->link->error.__LINE__);
+    if($update_row){
+     return $update_row;
+    } else {
+     return false;
+     }
+    }
+     
+   // Delete data
+    public function delete($query){
+    $delete_row = $this->link->query($query) or die($this->link->error.__LINE__);
+    if($delete_row){
+      return $delete_row;
+    } else {
+      return false;
+     }
+    }
 }
